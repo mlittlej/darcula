@@ -1,4 +1,4 @@
-" This Source Code Form is subject to the terms of the Mozilla Public
+" This Sourc/ Code Form is subject to the terms of the Mozilla Public
 " License, v. 2.0. If a copy of the MPL was not distributed with this
 " file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
@@ -15,12 +15,12 @@ let g:colors_name='darcula'
 
 let s:p={
       \ 'null': ['NONE', 'NONE'],
-      \ 'bg': ['#2B2B2B', 235],
-      \ 'fg': ['#A9B7C6', 145],
+      \ 'bg': ['NONE', 'NONE'],
+      \ 'fg': ['#BCBCBC', 250],
       \ 'cursor': ['#BBBBBB', 250],
       \ 'identifierUnderCaret': ['#344134', 237],
       \ 'identifierUnderCaretWrite': ['#40332B', 58],
-      \ 'gutter': ['#313335', 236],
+      \ 'gutter': ['NONE', 'NONE'],
       \ 'selection': ['#214283', 24],
       \ 'cursorLine': ['#323232', 236],
       \ 'cursorLineNr': ['#A4A3A3', 248],
@@ -34,16 +34,18 @@ let s:p={
       \ 'matchBraceFg': ['#FFEF28', 220],
       \ 'matchBraceBg': ['#3B514D', 59],
       \ 'todo': ['#A8C023', 142],
-      \ 'search': ['#32593D', 23],
-      \ 'incSearch': ['#155221', 22],
+      \ 'searchFg': ['#1c1c1c', 234],
+      \ 'incSearchFg': ['#1c1c1c', 234],
+      \ 'searchBg': ['#ffaf00', 214],
+      \ 'incSearchBg': ['#ffaf00', 214],
       \ 'foldedFg': ['#8C8C8C', 245],
       \ 'foldedBg': ['#3A3A3A', 237],
       \ 'constant': ['#9876AA', 103],
       \ 'keyword': ['#CC7832', 172],
-      \ 'comment': ['#808080', 244],
+      \ 'comment': ['#585858', 240],
       \ 'docComment': ['#629755', 65],
-      \ 'string': ['#6A8759', 101],
-      \ 'number': ['#6897BB', 103],
+      \ 'string': ['#5B8758', 101],
+      \ 'number': ['#87afff', 111],
       \ 'delimiter': ['#CC7832', 172],
       \ 'specialComment': ['#8A653B', 95],
       \ 'function': ['#FFC66D', 216],
@@ -56,7 +58,7 @@ let s:p={
       \ 'changeStripe': ['#374752', 60],
       \ 'deleteStripe': ['#656E76', 242],
       \ 'typo': ['#659C6B', 72],
-      \ 'metaData': ['#BBB529', 142],
+      \ 'metaData': ['#D7AF00', 178],
       \ 'macroName': ['#908B25', 100],
       \ 'cDataStructure': ['#B5B6E3', 146],
       \ 'cStructField': ['#9373A5', 103],
@@ -183,8 +185,8 @@ call s:Hi('PmenuSbar', s:p.menu, s:p.menu)
 call s:Hi('PmenuThumb', s:p.menuSBar, s:p.menuSBar)
 hi! link Question NormalFg
 hi! link QuickFixLine NormalFg
-call s:Hi('Search', s:p.null, s:p.search)
-call s:Hi('IncSearch', s:p.null, s:p.incSearch)
+call s:Hi('Search', s:p.searchFg, s:p.searchBg)
+call s:Hi('IncSearch', s:p.incSearchFg, s:p.incSearchBg)
 hi! link SpecialKey NonText
 call s:Hi('SpellBad', s:p.typo, s:p.null, 'underline')
 hi! link SpellCap SpellBad
@@ -244,7 +246,7 @@ if has('nvim')
   hi! link healthSuccess IncSearch
   call s:Hi('NvimInternalError', s:p.error, s:p.error)
   call s:Hi('RedrawDebugClear', s:p.fg, s:p.duplicateFromServer)
-  call s:Hi('RedrawDebugComposed', s:p.fg, s:p.search)
+  call s:Hi('RedrawDebugComposed', s:p.fg, s:p.searchBg)
   call s:Hi('RedrawDebugRecompose', s:p.fg, s:p.codeError)
   " Terminal colors
   let g:terminal_color_0 = s:p.ANSIBlack[0]
